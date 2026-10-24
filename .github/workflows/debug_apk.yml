@@ -1,0 +1,130 @@
+name: Build Debug APK
+
+on:
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Build note (optional)'
+        required: false
+        default: 'Manual debug build'
+  # 每次推送 main 分支也自动构建
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write   # 允许创建 Release 和上传 Release Assets
+
+jobs:
+  build-debug-apk:
+    name: Build & Upload Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Set up Flutter (stable)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Print Flutter version and locate SDK
+        id: flutter_info
+        run: |
+          flutter --version
+          FLUTTER_ROOT=$(flutter --version --machine 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('flutterRoot',''))" 2>/dev/null)
+          if [ -z "$FLUTTER_ROOT" ]; then
+            FLUTTER_ROOT=$(dirname $(dirname $(which flutter)))
+          fi
+          echo "FLUTTER_ROOT=$FLUTTER_ROOT" >> $GITHUB_ENV
+          echo "Flutter SDK root: $FLUTTER_ROOT"
+
+      - name: Generate local.properties
+        working-directory: ./flutter_app/android
+        run: |
+          cat > local.properties << EOF
+          sdk.dir=$ANDROID_SDK_ROOT
+          flutter.sdk=${{ env.FLUTTER_ROOT }}
+          flutter.buildMode=debug
+          flutter.versionName=1.0.0
+          flutter.versionCode=1
+          EOF
+          # Remove leading whitespace from heredoc
+          sed -i 's/^[[:space:]]*//' local.properties
+          echo "=== local.properties content ==="
+          cat local.properties
+
+      - name: Install Flutter dependencies
+        working-directory: ./flutter_app
+        run: flutter pub get
+
+      - name: Analyze code (non-fatal)
+        working-directory: ./flutter_app
+        run: flutter analyze --no-fatal-infos || true
+
+      - name: Build Debug APK
+        working-directory: ./flutter_app
+        run: flutter build apk --debug --verbose
+
+      - name: Rename APK with timestamp
+        run: |
+          TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          APK_SRC="flutter_app/build/app/outputs/flutter-apk/app-debug.apk"
+          APK_DST="flutter_app/build/app/outputs/flutter-apk/dazz-debug-${TIMESTAMP}-${SHORT_SHA}.apk"
+          cp "$APK_SRC" "$APK_DST"
+          echo "APK_NAME=dazz-debug-${TIMESTAMP}-${SHORT_SHA}.apk" >> $GITHUB_ENV
+          echo "APK_PATH=$APK_DST" >> $GITHUB_ENV
+          echo "RELEASE_TAG=debug-${TIMESTAMP}-${SHORT_SHA}" >> $GITHUB_ENV
+          ls -lh flutter_app/build/app/outputs/flutter-apk/
+
+      - name: Upload Debug APK as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APK_NAME }}
+          path: ${{ env.APK_PATH }}
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Create GitHub Release and upload APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: "Debug Build ${{ env.RELEASE_TAG }}"
+          body: |
+            ## 🤖 自动构建的 Debug APK
+
+            | 字段 | 值 |
+            |------|-----|
+            | **APK 文件** | `${{ env.APK_NAME }}` |
+            | **Commit** | `${{ github.sha }}` |
+            | **Branch** | `${{ github.ref_name }}` |
+            | **触发方式** | `${{ github.event_name }}` |
+
+            > ⚠️ 这是 Debug 版本，仅供测试使用，不可用于生产环境。
+          files: ${{ env.APK_PATH }}
+          prerelease: true
+          make_latest: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build summary
+        run: |
+          echo "## ✅ Debug APK Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| APK Name | \`${{ env.APK_NAME }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Branch | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Release Tag | \`${{ env.RELEASE_TAG }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📦 APK 已发布到 [GitHub Releases](https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_TAG }})" >> $GITHUB_STEP_SUMMARY

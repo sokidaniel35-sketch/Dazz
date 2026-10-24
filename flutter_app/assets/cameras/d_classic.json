@@ -1,0 +1,543 @@
+{
+  "id": "d_classic",
+  "name": "D Classic",
+  "category": "digital",
+  "mode": "photo",
+  "supportsPhoto": true,
+  "supportsVideo": false,
+  "focalLengthLabel": "38mm",
+  "sensor": {
+    "type": "cmos",
+    "dynamicRange": 10,
+    "baseNoise": 0.1,
+    "colorDepth": 10
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/d_classic.cube",
+    "distortion": 0.0,
+    "chromaticAberration": 0.01,
+    "flare": 0.0,
+    "temperature": 12,
+    "tint": 2.0,
+    "contrast": 1.06,
+    "highlights": -4.0,
+    "shadows": 6.0,
+    "whites": 6.0,
+    "blacks": -5.0,
+    "clarity": 12.0,
+    "saturation": 1.08,
+    "vibrance": 8.0,
+    "grain": 0.06,
+    "grainSize": 0.4,
+    "bloom": 0.04,
+    "vignette": 0.06,
+    "sharpness": 1.15,
+    "colorBiasR": 0.012,
+    "colorBiasG": 0.006,
+    "colorBiasB": -0.01,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "highlightRolloff": 0.0,
+    "centerGain": 0.0,
+    "edgeFalloff": 0.0,
+    "cornerWarmShift": 0.0,
+    "developmentSoftness": 0.0,
+    "chemicalIrregularity": 0.0,
+    "paperTexture": 0.0,
+    "skinHueProtect": false,
+    "skinSatProtect": 0.95,
+    "skinLumaSoften": 0.0,
+    "skinRedLimit": 1.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.0,
+    "shadowTintR": 0.0,
+    "shadowTintG": 0.0,
+    "shadowTintB": 0.0,
+    "highlightTintR": 0.0,
+    "highlightTintG": 0.0,
+    "highlightTintB": 0.0,
+    "splitToneBalance": 0.5,
+    "lightLeakAmount": 0.0
+  },
+  "modules": {
+    "filters": [],
+    "lenses": [
+      {
+        "id": "std",
+        "name": "标准",
+        "nameEn": "Standard",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.02,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_std.png"
+      },
+      {
+        "id": "wide",
+        "name": "广角",
+        "nameEn": "Wide",
+        "zoomFactor": 0.8,
+        "distortion": 0.06,
+        "vignette": 0.08,
+        "chromaticAberration": 0.01,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "tele",
+        "name": "长焦",
+        "nameEn": "Tele",
+        "zoomFactor": 2.0,
+        "distortion": -0.01,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.02,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_tele.png"
+      },
+      {
+        "id": "nd",
+        "name": "ND滤镜",
+        "nameEn": "ND",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": -0.55,
+        "contrast": -0.05,
+        "saturation": -0.02,
+        "highlightCompression": 0.2,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_nd.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "width": 1,
+        "height": 1,
+        "supportsFrame": true
+      },
+      {
+        "id": "ratio_2_3",
+        "label": "2:3",
+        "width": 2,
+        "height": 3,
+        "supportsFrame": false
+      },
+      {
+        "id": "ratio_3_4",
+        "label": "3:4",
+        "width": 3,
+        "height": 4,
+        "supportsFrame": true
+      },
+      {
+        "id": "ratio_9_16",
+        "label": "9:16",
+        "width": 9,
+        "height": 16,
+        "supportsFrame": false
+      }
+    ],
+    "frames": [
+      {
+        "id": "instant_default",
+        "name": "冷白",
+        "nameEn": "Default",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_default_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_default_3x4.png"
+        },
+        "backgroundColor": "#F5F6FA",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_default.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F5F6FA",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_blue",
+        "name": "冰蓝",
+        "nameEn": "Ice Blue",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_blue_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_blue_3x4.png"
+        },
+        "backgroundColor": "#E8F4FD",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_blue.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F4FD",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_green",
+        "name": "抹茶",
+        "nameEn": "Matcha",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_green_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_green_3x4.png"
+        },
+        "backgroundColor": "#E8F5E9",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_green.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F5E9",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_orange",
+        "name": "橙意",
+        "nameEn": "Tangerine",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_orange_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_orange_3x4.png"
+        },
+        "backgroundColor": "#FFF3E0",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_orange.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FFF3E0",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_pink",
+        "name": "樱粉",
+        "nameEn": "Blossom",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_pink_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_pink_3x4.png"
+        },
+        "backgroundColor": "#FCE4EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_pink.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FCE4EC",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_rose",
+        "name": "玫瑰",
+        "nameEn": "Rose",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_rose_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_rose_3x4.png"
+        },
+        "backgroundColor": "#F8E8EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_rose.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F8E8EC",
+        "supportsBackground": true
+      }
+    ],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_orange",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": null,
+    "lensId": "std",
+    "ratioId": "ratio_3_4",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": false,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": true,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": false
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": true,
+    "allowZoom": true,
+    "allowImportImage": true,
+    "allowTimer": true,
+    "allowFlash": true
+  },
+  "previewPolicy": {
+    "enableLut": true,
+    "enableTemperature": true,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": true,
+    "enableGrain": true,
+    "enableBloom": false,
+    "enableChromaticAberration": false,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.9,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": true,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24,
+      30
+    ],
+    "resolutionOptions": [
+      "HD"
+    ],
+    "defaultFps": 30,
+    "defaultResolution": "HD",
+    "supportsAudio": false,
+    "videoBitrate": 8000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/d_classic.jpg",
+    "icon": "assets/thumbnails/cameras/d_classic_icon.jpg"
+  },
+  "meta": {
+    "version": "final",
+    "premium": false,
+    "sortOrder": 5,
+    "tags": [
+      "digital",
+      "warm",
+      "family",
+      "everyday",
+      "2005"
+    ]
+  },
+  "defaults": {}
+}

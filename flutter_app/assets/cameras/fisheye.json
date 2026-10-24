@@ -1,0 +1,252 @@
+{
+  "id": "fisheye",
+  "name": "FISHEYE",
+  "category": "creative",
+  "mode": "photo",
+  "supportsPhoto": true,
+  "supportsVideo": false,
+  "focalLengthLabel": "10mm",
+  "sensor": {
+    "type": "film",
+    "dynamicRange": 8,
+    "baseNoise": 0.2,
+    "colorDepth": 8
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/fisheye.cube",
+    "distortion": 0.6,
+    "chromaticAberration": 0.08,
+    "flare": 0.03,
+    "temperature": 15,
+    "tint": 6.0,
+    "contrast": 1.22,
+    "highlights": -5.0,
+    "shadows": -10.0,
+    "whites": 12.0,
+    "blacks": -22.0,
+    "clarity": 18.0,
+    "saturation": 1.25,
+    "vibrance": 30.0,
+    "grain": 0.2,
+    "bloom": 0.06,
+    "vignette": 0.4,
+    "colorBiasR": 0.08,
+    "colorBiasG": 0.02,
+    "colorBiasB": -0.04,
+    "grainSize": 1.6,
+    "sharpness": 1.05,
+    "highlightRolloff": 0.08,
+    "halation": 0.04,
+    "centerGain": 0.035,
+    "edgeFalloff": 0.08,
+    "exposureVariation": 0.025,
+    "cornerWarmShift": 0.015,
+    "topBottomBias": 0.005,
+    "leftRightBias": 0.0,
+    "developmentSoftness": 0.025,
+    "chemicalIrregularity": 0.018,
+    "skinHueProtect": true,
+    "skinSatProtect": 0.9,
+    "skinLumaSoften": 0.03,
+    "skinRedLimit": 1.04,
+    "luminanceNoise": 0.06,
+    "chromaNoise": 0.04,
+    "toneCurveStrength": 1.0,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "paperTexture": 0.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.05,
+    "shadowTintR": 0.0,
+    "shadowTintG": 0.01,
+    "shadowTintB": 0.025,
+    "highlightTintR": 0.03,
+    "highlightTintG": 0.02,
+    "highlightTintB": 0.0,
+    "splitToneBalance": 0.5,
+    "lightLeakAmount": 0.1
+  },
+  "modules": {
+    "filters": [],
+    "lenses": [
+      {
+        "id": "fisheye",
+        "name": "鱼眼",
+        "nameEn": "Fisheye",
+        "zoomFactor": 0.5,
+        "distortion": 0.28,
+        "vignette": 0.0,
+        "chromaticAberration": 0.02,
+        "edgeBlur": 0.02,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "fisheyeMode": true,
+        "iconPath": "assets/lenses/lens_fisheye.png"
+      },
+      {
+        "id": "fisheye_wide",
+        "name": "宽鱼眼",
+        "nameEn": "FisheyeW",
+        "zoomFactor": 0.42,
+        "distortion": 0.45,
+        "vignette": 0.0,
+        "chromaticAberration": 0.05,
+        "edgeBlur": 0.0,
+        "exposure": -0.03,
+        "contrast": -0.03,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "fisheyeMode": false,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "nd",
+        "name": "ND滤镜",
+        "nameEn": "ND",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": -0.55,
+        "contrast": -0.05,
+        "saturation": -0.02,
+        "highlightCompression": 0.2,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_nd.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "width": 1,
+        "height": 1,
+        "supportsFrame": false
+      }
+    ],
+    "frames": [],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": null,
+    "lensId": "fisheye",
+    "ratioId": "ratio_1_1",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": false,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": false,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": false
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": false,
+    "allowZoom": false,
+    "allowImportImage": true,
+    "allowTimer": true,
+    "allowFlash": false
+  },
+  "previewPolicy": {
+    "enableLut": true,
+    "enableTemperature": true,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": true,
+    "enableGrain": true,
+    "enableBloom": false,
+    "enableChromaticAberration": true,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true,
+    "enableHalation": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.92,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": false,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24,
+      30
+    ],
+    "resolutionOptions": [
+      "HD"
+    ],
+    "defaultFps": 30,
+    "defaultResolution": "HD",
+    "supportsAudio": false,
+    "videoBitrate": 8000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/fisheye.jpg",
+    "icon": "assets/thumbnails/cameras/fisheye_icon.jpg"
+  },
+  "meta": {
+    "version": "final",
+    "premium": false,
+    "sortOrder": 9,
+    "tags": [
+      "creative",
+      "fisheye",
+      "distortion",
+      "skate",
+      "street",
+      "lomography"
+    ]
+  }
+}

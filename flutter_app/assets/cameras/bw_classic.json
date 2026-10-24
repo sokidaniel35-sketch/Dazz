@@ -1,0 +1,347 @@
+{
+  "id": "bw_classic",
+  "name": "黑白经典",
+  "category": "film",
+  "mode": "photo",
+  "supportsPhoto": true,
+  "supportsVideo": false,
+  "focalLengthLabel": "35mm",
+  "sensor": {
+    "type": "bw",
+    "dynamicRange": 11,
+    "baseNoise": 0.22,
+    "colorDepth": 8
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/bw_trix400.cube",
+    "saturation": 0.0,
+    "vibrance": 0.0,
+    "exposure": 0.0,
+    "contrast": 1.28,
+    "highlights": -6.0,
+    "shadows": -10.0,
+    "whites": 16.0,
+    "blacks": -18.0,
+    "clarity": 17.0,
+    "bwChannelR": 0.18,
+    "bwChannelG": 0.76,
+    "bwChannelB": 0.06,
+    "distortion": 0.0,
+    "chromaticAberration": 0.0,
+    "flare": 0.0,
+    "vignette": 0.14,
+    "sharpen": 0.08,
+    "sharpness": 1.18,
+    "grain": 0.28,
+    "grainSize": 1.5,
+    "luminanceNoise": 0.04,
+    "bloom": 0.06,
+    "halation": 0.0,
+    "highlightRolloff": 0.22,
+    "developmentSoftness": 0.025,
+    "chemicalIrregularity": 0.018,
+    "centerGain": 0.008,
+    "edgeFalloff": 0.035,
+    "exposureVariation": 0.015,
+    "cornerWarmShift": 0.0,
+    "topBottomBias": 0.0,
+    "leftRightBias": 0.0,
+    "temperature": 0,
+    "tint": 0.0,
+    "colorBiasR": 0.0,
+    "colorBiasG": 0.0,
+    "colorBiasB": 0.0,
+    "toneCurveStrength": 1.0,
+    "skinHueProtect": false,
+    "skinSatProtect": 1.0,
+    "skinLumaSoften": 0.0,
+    "skinRedLimit": 1.0,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "paperTexture": 0.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.05,
+    "shadowTintR": 0.0,
+    "shadowTintG": 0.0,
+    "shadowTintB": 0.0,
+    "highlightTintR": 0.0,
+    "highlightTintG": 0.0,
+    "highlightTintB": 0.0,
+    "splitToneBalance": 0.5,
+    "lightLeakAmount": 0.0
+  },
+  "modules": {
+    "filters": [
+      {
+        "id": "trix_400",
+        "name": "Tri-X 400",
+        "nameEn": "Tri-X 400",
+        "lut": "assets/lut/cameras/bw_trix400.cube",
+        "contrast": 1.28,
+        "saturation": 0.0,
+        "grain": "medium",
+        "grainSize": 0.6,
+        "vignette": 0.14,
+        "sharpness": 1.18,
+        "thumbnail": "assets/thumbnails/films/trix_400.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 700,
+        "slideDistance": 1.0,
+        "motionBlur": 0.08,
+        "sound": "film_advance"
+      },
+      {
+        "id": "hp5_plus",
+        "name": "HP5 Plus",
+        "nameEn": "HP5 Plus",
+        "lut": "assets/lut/cameras/bw_hp5.cube",
+        "contrast": 1.1,
+        "saturation": 0.0,
+        "grain": "light",
+        "grainSize": 0.42,
+        "vignette": 0.09,
+        "sharpness": 1.04,
+        "thumbnail": "assets/thumbnails/films/hp5_plus.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 650,
+        "slideDistance": 0.95,
+        "motionBlur": 0.06,
+        "sound": "film_advance"
+      }
+    ],
+    "lenses": [
+      {
+        "id": "std",
+        "name": "标准",
+        "nameEn": "Standard",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.02,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_std.png"
+      },
+      {
+        "id": "wide",
+        "name": "广角",
+        "nameEn": "Wide",
+        "zoomFactor": 0.8,
+        "distortion": 0.06,
+        "vignette": 0.08,
+        "chromaticAberration": 0.01,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "tele",
+        "name": "长焦",
+        "nameEn": "Tele",
+        "zoomFactor": 2.0,
+        "distortion": -0.01,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.02,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_tele.png"
+      },
+      {
+        "id": "vintage",
+        "name": "复古",
+        "nameEn": "Vintage",
+        "zoomFactor": 1.0,
+        "distortion": 0.02,
+        "vignette": 0.12,
+        "chromaticAberration": 0.03,
+        "edgeBlur": 0.04,
+        "exposure": -0.02,
+        "contrast": -0.04,
+        "saturation": -0.02,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_vintage.png"
+      },
+      {
+        "id": "nd",
+        "name": "ND滤镜",
+        "nameEn": "ND",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": -0.55,
+        "contrast": -0.05,
+        "saturation": -0.02,
+        "highlightCompression": 0.2,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_nd.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "supportsFrame": true,
+        "width": 1,
+        "height": 1
+      },
+      {
+        "id": "ratio_2_3",
+        "label": "2:3",
+        "supportsFrame": false,
+        "width": 2,
+        "height": 3
+      },
+      {
+        "id": "ratio_3_4",
+        "label": "3:4",
+        "supportsFrame": true,
+        "width": 3,
+        "height": 4
+      }
+    ],
+    "frames": [],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": "trix_400",
+    "lensId": "std",
+    "ratioId": "ratio_2_3",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": true,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": false,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": true
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": true,
+    "allowZoom": true,
+    "allowImportImage": true,
+    "allowTimer": true,
+    "allowFlash": true
+  },
+  "previewPolicy": {
+    "enableLut": false,
+    "enableTemperature": false,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": false,
+    "enableGrain": true,
+    "enableBloom": false,
+    "enableChromaticAberration": true,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.92,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": true,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24,
+      30
+    ],
+    "resolutionOptions": [
+      "HD"
+    ],
+    "defaultFps": 30,
+    "defaultResolution": "HD",
+    "supportsAudio": false,
+    "videoBitrate": 8000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/bw_classic.jpg",
+    "icon": "assets/thumbnails/cameras/bw_classic_icon.jpg"
+  },
+  "meta": {
+    "version": "final",
+    "premium": false,
+    "sortOrder": 3,
+    "tags": [
+      "bw",
+      "classic",
+      "monochrome",
+      "35mm",
+      "high-contrast"
+    ]
+  },
+  "filmRollBehavior": {
+    "type": "advance",
+    "style": "35mm_negative"
+  }
+}

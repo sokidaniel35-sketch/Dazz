@@ -1,0 +1,345 @@
+{
+  "id": "grd_r",
+  "name": "GRD R",
+  "category": "digital",
+  "mode": "photo",
+  "supportsPhoto": true,
+  "supportsVideo": false,
+  "focalLengthLabel": "28mm",
+  "sensor": {
+    "type": "cmos",
+    "dynamicRange": 11,
+    "baseNoise": 0.15,
+    "colorDepth": 12
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/grd_r.cube",
+    "lutStrength": 0.85,
+    "toneCurveStrength": 1.0,
+    "exposure": -0.03,
+    "contrast": 1.18,
+    "saturation": 0.94,
+    "temperature": -25,
+    "tint": -3,
+    "highlights": -10,
+    "shadows": -6,
+    "whites": 4,
+    "blacks": -8,
+    "clarity": 12,
+    "dehaze": 4,
+    "sharpness": 1.22,
+    "colorBiasR": -0.025,
+    "colorBiasG": 0.0,
+    "colorBiasB": 0.028,
+    "grain": 0.06,
+    "grainSize": 1.1,
+    "highlightRolloff": 0.1,
+    "bloom": 0.02,
+    "halation": 0.0,
+    "vignette": 0.08,
+    "chromaticAberration": 0.05,
+    "distortion": 0.0,
+    "sharpen": 0.14,
+    "centerGain": 0.005,
+    "edgeFalloff": 0.015,
+    "exposureVariation": 0.01,
+    "cornerWarmShift": -0.005,
+    "developmentSoftness": 0.0,
+    "chemicalIrregularity": 0.0,
+    "skinHueProtect": true,
+    "skinSatProtect": 0.95,
+    "skinLumaSoften": 0.02,
+    "skinRedLimit": 1.03,
+    "toneCurvePoints": [
+      [
+        0,
+        0
+      ],
+      [
+        16,
+        10
+      ],
+      [
+        32,
+        22
+      ],
+      [
+        64,
+        50
+      ],
+      [
+        96,
+        90
+      ],
+      [
+        128,
+        132
+      ],
+      [
+        160,
+        180
+      ],
+      [
+        192,
+        215
+      ],
+      [
+        224,
+        240
+      ],
+      [
+        255,
+        255
+      ]
+    ],
+    "luminanceNoise": 0.06,
+    "chromaNoise": 0.0,
+    "flare": 0.0,
+    "vibrance": 0.0,
+    "tintShift": -2,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "paperTexture": 0.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.02,
+    "shadowTintR": 0.0,
+    "shadowTintG": 0.008,
+    "shadowTintB": 0.030,
+    "highlightTintR": 0.005,
+    "highlightTintG": 0.008,
+    "highlightTintB": 0.012,
+    "splitToneBalance": 0.5,
+    "lightLeakAmount": 0.0
+  },
+  "modules": {
+    "filters": [],
+    "lenses": [
+      {
+        "id": "std",
+        "name": "标准",
+        "nameEn": "Standard",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.02,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_std.png"
+      },
+      {
+        "id": "wide",
+        "name": "广角",
+        "nameEn": "Wide",
+        "zoomFactor": 0.8,
+        "distortion": 0.06,
+        "vignette": 0.08,
+        "chromaticAberration": 0.01,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "tele",
+        "name": "长焦",
+        "nameEn": "Tele",
+        "zoomFactor": 2.0,
+        "distortion": -0.01,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.02,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_tele.png"
+      },
+      {
+        "id": "nd",
+        "name": "ND滤镜",
+        "nameEn": "ND",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": -0.55,
+        "contrast": -0.05,
+        "saturation": -0.02,
+        "highlightCompression": 0.2,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_nd.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "supportsFrame": true,
+        "width": 1,
+        "height": 1
+      },
+      {
+        "id": "ratio_2_3",
+        "label": "2:3",
+        "supportsFrame": false,
+        "width": 2,
+        "height": 3
+      },
+      {
+        "id": "ratio_3_4",
+        "label": "3:4",
+        "supportsFrame": true,
+        "width": 3,
+        "height": 4
+      },
+      {
+        "id": "ratio_9_16",
+        "label": "9:16",
+        "supportsFrame": false,
+        "width": 9,
+        "height": 16
+      }
+    ],
+    "frames": [],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_orange",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": null,
+    "lensId": "wide",
+    "ratioId": "ratio_3_4",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": false,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": true,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": false
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": true,
+    "allowZoom": true,
+    "allowImportImage": true,
+    "allowTimer": true,
+    "allowFlash": true
+  },
+  "previewPolicy": {
+    "enableLut": true,
+    "enableTemperature": true,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": true,
+    "enableGrain": true,
+    "enableBloom": false,
+    "enableChromaticAberration": true,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.92,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": true,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24,
+      30,
+      60
+    ],
+    "resolutionOptions": [
+      "SD",
+      "HD",
+      "4K"
+    ],
+    "defaultFps": 30,
+    "defaultResolution": "HD",
+    "supportsAudio": true,
+    "videoBitrate": 12000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/grd_r.jpg",
+    "icon": "assets/thumbnails/cameras/grd_r_icon.jpg"
+  },
+  "meta": {
+    "version": "v2.0",
+    "premium": false,
+    "sortOrder": 0,
+    "tags": [
+      "street",
+      "digital",
+      "ricoh",
+      "28mm",
+      "high-contrast",
+      "cold"
+    ]
+  }
+}

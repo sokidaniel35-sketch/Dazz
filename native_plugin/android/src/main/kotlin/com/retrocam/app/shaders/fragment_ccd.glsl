@@ -1,0 +1,268 @@
+#extension GL_OES_EGL_image_external : require
+precision mediump float;
+
+// 相机输入纹理（来自 CameraX 的 SurfaceTexture）
+uniform samplerExternalOES uCameraTexture;
+// LUT 纹理（用于色彩重映射）
+uniform sampler2D uLutTexture;
+// 胶片颗粒纹理
+uniform sampler2D uGrainTexture;
+
+// ── 基础色彩参数 ──────────────────────────────────────────────
+uniform float uContrast;           // 对比度乘数，1.0 = 原始
+uniform float uSaturation;         // 饱和度乘数，1.0 = 原始；0.0 = 黑白
+uniform float uTemperatureShift;   // 色温偏移（负数偏冷/蓝，正数偏暖/橙）
+uniform float uTintShift;          // 绿/洋红偏色（负数偏绿，正数偏洋红）
+uniform float uExposureOffset;     // 曝光偏移（EV，-2.0~+2.0，正数提亮）
+
+// ── Lightroom 风格曲线参数（-100 ~ +100）─────────────────────
+uniform float uHighlights;         // 高光压缩/提亮
+uniform float uShadows;            // 阴影压缩/提亮
+uniform float uWhites;             // 白场偏移
+uniform float uBlacks;             // 黑场偏移
+uniform float uClarity;            // 中间调微对比度（Clarity）
+uniform float uVibrance;           // 智能饱和度（低饱和区域优先）
+
+// ── RGB 通道独立偏移（-1.0 ~ +1.0）──────────────────────────
+uniform float uColorBiasR;
+uniform float uColorBiasG;
+uniform float uColorBiasB;
+
+// ── 胶片效果参数 ─────────────────────────────────────────────────────────────────────────────────
+uniform float uGrainAmount;        // 颗粒强度 0~1
+uniform float uNoiseAmount;        // 数字噪点强度 0~1
+uniform float uVignetteAmount;     // 暗角强度 0~1（preset 层）
+uniform float uChromaticAberration;// 色差强度
+uniform float uBloomAmount;        // 高光光晕强度
+uniform float uHalationAmount;     // FIX: 高光辉光（Halation）强度 0~1，模拟胶片高光渗色效果
+uniform float uTime;               // 动态噪点时间种子
+uniform float uDistortion;         // 镜头畸变：负値=桶形(鱼眼), 正値=枥形, 0=无畸变
+uniform float uZoomFactor;         // 镜头缩放：1.0=标准, 0.5=鱼眼视野扩展（圆形遣罩）
+uniform float uLensVignette;       // 镜头层暗角，叠加在 preset 暗角之上
+
+varying vec2 vTexCoord;
+
+// ============================================================
+// 工具函数
+// ============================================================
+
+// 计算暗角强度
+float vignetteEffect(vec2 uv, float amount) {
+    vec2 d = uv - 0.5;
+    return 1.0 - dot(d, d) * amount * 2.5;
+}
+
+// 简单的伪随机噪点生成
+float random(vec2 st, float seed) {
+    return fract(sin(dot(st + seed, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+// 色温偏移：负值偏冷（蓝），正值偏暖（橙）
+// 项目定义：1800K=最暖(橙)，8000K=最冷(蓝)；offset=(K-4800)/32，1800K→负值，8000K→正值
+// 因此 shift>0=冷(减R加B)，shift<0=暖(加R减B)
+vec3 applyTemperatureShift(vec3 color, float shift) {
+    float s = shift / 1000.0;
+    color.r = clamp(color.r - s * 0.3, 0.0, 1.0);
+    color.b = clamp(color.b + s * 0.3, 0.0, 1.0);
+    return color;
+}
+
+// 曝光偏移：EV 单位，正数提亮，负数压暗
+vec3 applyExposure(vec3 color, float ev) {
+    float gain = pow(2.0, ev);
+    return clamp(color * gain, vec3(0.0), vec3(1.0));
+}
+
+// Tint 偏色：负值偏绿，正值偏洋红
+vec3 applyTint(vec3 color, float tint) {
+    float t = tint / 100.0;
+    color.g = clamp(color.g - t * 0.12, 0.0, 1.0);
+    color.r = clamp(color.r + t * 0.06, 0.0, 1.0);
+    color.b = clamp(color.b + t * 0.06, 0.0, 1.0);
+    return color;
+}
+
+// 对比度调整（围绕 0.5 缩放）
+vec3 applyContrast(vec3 color, float contrast) {
+    return clamp((color - 0.5) * contrast + 0.5, 0.0, 1.0);
+}
+
+// 饱和度调整（BT.709 亮度权重）
+vec3 applySaturation(vec3 color, float saturation) {
+    float lum = dot(color, vec3(0.2126, 0.7152, 0.0722));
+    return mix(vec3(lum), color, saturation);
+}
+
+// 黑场/白场偏移
+vec3 applyBlacksWhites(vec3 color, float blacks, float whites) {
+    float blacksOffset = blacks / 100.0 * (20.0 / 255.0);
+    float whitesScale  = 1.0 + whites / 100.0 * 0.15;
+    return clamp(color * whitesScale + blacksOffset, 0.0, 1.0);
+}
+
+// 高光/阴影压缩（非线性曲线模拟）
+vec3 applyHighlightsShadows(vec3 color, float highlights, float shadows) {
+    float hScale  = 1.0 + highlights / 100.0 * 0.12;
+    float hOffset = -highlights / 100.0 * 0.12 * (191.0 / 255.0);
+    float sScale  = 1.0 - shadows / 100.0 * 0.08;
+    float sOffset = shadows / 100.0 * 0.08 * (64.0 / 255.0) + shadows / 100.0 * (12.0 / 255.0);
+    float scale   = hScale * sScale;
+    float offset  = hOffset * sScale + sOffset;
+    return clamp(color * scale + offset, 0.0, 1.0);
+}
+
+// Clarity：中间调微对比度
+vec3 applyClarity(vec3 color, float clarity) {
+    float c      = clarity / 100.0;
+    float boost  = 1.0 + c * 0.15;
+    float offset = -c * 0.15 * 0.5;
+    return clamp(color * boost + offset, 0.0, 1.0);
+}
+
+// Vibrance：智能饱和度（低饱和区域优先提升）
+vec3 applyVibrance(vec3 color, float vibrance) {
+    float v   = vibrance / 100.0 * 0.6;
+    float sat = 1.0 + v;
+    const float lr = 0.2126;
+    const float lg = 0.7152;
+    const float lb = 0.0722;
+    float sr = (1.0 - sat) * lr;
+    float sg = (1.0 - sat) * lg;
+    float sb = (1.0 - sat) * lb;
+    return clamp(vec3(
+        color.r * (sr + sat) + color.g * sg + color.b * sb,
+        color.r * sr + color.g * (sg + sat) + color.b * sb,
+        color.r * sr + color.g * sg + color.b * (sb + sat)
+    ), 0.0, 1.0);
+}
+
+// RGB 通道偏移
+vec3 applyColorBias(vec3 color, float r, float g, float b) {
+    return clamp(color + vec3(r * (30.0/255.0), g * (30.0/255.0), b * (30.0/255.0)), 0.0, 1.0);
+}
+
+// ============================================================
+// 镜头缩放：zoomFactor < 1.0 时视野扩大（鱼眼圆形遮罩效果）
+// fisheye: zoomFactor=0.5 → 视野扩大 2x，形成圆形鱼眼外观
+// ultra_fisheye: zoomFactor=0.35 → 视野扩大 ~2.86x
+// ============================================================
+vec2 applyZoom(vec2 uv, float zoomFactor) {
+    vec2 centered = (uv - 0.5) * zoomFactor;
+    return centered + 0.5;
+}
+
+// ============================================================
+// 镜头畸变：Brown-Conrady 径向畸变模型
+// k1 < 0 → 桶形畸变（鱼眼/广角），k1 > 0 → 枕形畸变（长焦）
+// 公式：r' = r * (1 + k1 * r²)，在 UV 采样前变换坐标
+// ============================================================
+vec2 applyLensDistortion(vec2 uv, float k1) {
+    if (abs(k1) < 0.001) return uv;
+    vec2 centered = uv - 0.5;           // 以图像中心为原点
+    float r2 = dot(centered, centered); // r²
+    float scale = 1.0 + k1 * r2;       // 畸变缩放因子
+    scale = max(scale, 0.1);            // 防止极端值导致 UV 翻转
+    return centered / scale + 0.5;      // 反变换：采样点往内收 = 图像向外鼓
+}
+
+// ============================================================
+// 主函数
+// ============================================================
+
+void main() {
+    vec2 uv = vTexCoord;
+
+    // === Pass 0a: 镜头缩放（鱼眼视野扩展）===
+    // uZoomFactor < 1.0 时 UV 向外扩展，超出 [0,1] 的区域为黑色（圆形遮罩效果）
+    // fisheye: uZoomFactor=0.5 → 视野扩大 2x，形成圆形鱼眼外观
+    // ultra_fisheye: uZoomFactor=0.35 → 视野扩大 ~2.86x，更强烈的圆形效果
+    if (abs(uZoomFactor - 1.0) > 0.001) {
+        uv = applyZoom(uv, uZoomFactor);
+        if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+            gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+            return;
+        }
+    }
+
+    // === Pass 0b: 镜头畸变（Brown-Conrady 径向畸变）===
+    // uDistortion 直接映射到 k1（Brown-Conrady 系数）
+    // 鱼眼 distortion=-0.60 → k1=-0.45（强桶形，图像向外鼓）
+    // 广角 distortion=-0.08 → k1=-0.06（轻微桶形）
+    // 长焦 distortion=+0.05 → k1=+0.0375（轻微枕形）
+    float k1 = uDistortion * 0.75;
+    uv = applyLensDistortion(uv, k1);
+    // 边缘裁切：畸变后 UV 超出 [0,1] 的区域填充黑色
+    if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+        gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+        return;
+    }
+
+    // === Pass 1: 色差 (Chromatic Aberration) ===
+    float ca = uChromaticAberration;
+    float r = texture2D(uCameraTexture, uv + vec2(ca, 0.0)).r;
+    float g = texture2D(uCameraTexture, uv).g;
+    float b = texture2D(uCameraTexture, uv - vec2(ca, 0.0)).b;
+    vec3 color = vec3(r, g, b);
+
+    // === Pass 1.5: 曝光偏移（在色彩处理之前应用，模拟胶片曝光量）===
+    if (abs(uExposureOffset) > 0.001) {
+        color = applyExposure(color, uExposureOffset);
+    }
+
+    // === Pass 2: 色温 + Tint ===
+    color = applyTemperatureShift(color, uTemperatureShift);
+    color = applyTint(color, uTintShift);
+
+    // === Pass 3: 黑场/白场 ===
+    color = applyBlacksWhites(color, uBlacks, uWhites);
+
+    // === Pass 4: 高光/阴影压缩 ===
+    color = applyHighlightsShadows(color, uHighlights, uShadows);
+
+    // === Pass 5: 对比度 ===
+    color = applyContrast(color, uContrast);
+
+    // === Pass 6: Clarity（中间调微对比度）===
+    if (abs(uClarity) > 0.5) {
+        color = applyClarity(color, uClarity);
+    }
+
+    // === Pass 7: 饱和度 + Vibrance ===
+    color = applySaturation(color, uSaturation);
+    if (abs(uVibrance) > 0.5) {
+        color = applyVibrance(color, uVibrance);
+    }
+
+    // === Pass 8: RGB 通道偏移 ===
+    if (abs(uColorBiasR) + abs(uColorBiasG) + abs(uColorBiasB) > 0.001) {
+        color = applyColorBias(color, uColorBiasR, uColorBiasG, uColorBiasB);
+    }
+
+    // === Pass 9: 高光溢出 (Bloom) - 移动到 CapturePipeline ===
+    // 预览中移除，以降低 GPU 负载
+
+    // === Pass 10: 胶片颗粒 (Grain) - 移动到 CapturePipeline ===
+    // 预览中移除，以降低 GPU 负载
+
+    // === Pass 11: 动态数字噪点 (Noise) - 移动到 CapturePipeline ===
+    // 预览中移除，以降低 GPU 负载
+    float luminance = dot(color, vec3(0.2126, 0.7152, 0.0722));
+
+    // === Pass 11b: FIX: Halation（高光辉光）===
+    // 模拟胶片高光区域向周围渗色的红色辉光效果
+    // 高亮度区域（luminance > 0.7）叠加暖色渗色
+    if (uHalationAmount > 0.001) {
+        float halationMask = smoothstep(0.6, 1.0, luminance);
+        vec3 halationColor = vec3(0.9, 0.3, 0.1); // 暖色辉光（橙红色）
+        color = mix(color, color + halationColor * halationMask * uHalationAmount * 0.15, 1.0);
+        color = clamp(color, 0.0, 1.0);
+    }
+
+    // === Pass 12: 暗角 (Vignette) ===
+    // preset 暗角 + 镜头层暗角叠加，上限 1.0
+    float vigTotal = min(uVignetteAmount + uLensVignette, 1.0);
+    float vignette = vignetteEffect(uv, vigTotal);
+    color *= vignette;
+
+    gl_FragColor = vec4(color, 1.0);
+}

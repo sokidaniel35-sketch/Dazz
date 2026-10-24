@@ -1,0 +1,586 @@
+{
+  "id": "u300",
+  "name": "U300",
+  "category": "film",
+  "mode": "photo",
+  "supportsPhoto": true,
+  "supportsVideo": false,
+  "focalLengthLabel": "32mm",
+  "sensor": {
+    "type": "film",
+    "dynamicRange": 9,
+    "baseNoise": 0.22,
+    "colorDepth": 8
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/u300_color.cube",
+    "exposure": 0.02,
+    "contrast": 1.1,
+    "saturation": 1.2,
+    "temperature": 28,
+    "tint": 1.0,
+    "highlights": -6.0,
+    "shadows": -2.0,
+    "whites": 8.0,
+    "blacks": -4.0,
+    "clarity": 4.0,
+    "vibrance": 10.0,
+    "colorBiasR": 0.04,
+    "colorBiasG": 0.015,
+    "colorBiasB": -0.03,
+    "distortion": 0.005,
+    "chromaticAberration": 0.05,
+    "sharpen": 0.02,
+    "sharpness": 1.02,
+    "flare": 0.02,
+    "vignette": 0.1,
+    "highlightRolloff": 0.22,
+    "bloom": 0.08,
+    "halation": 0.05,
+    "grain": 0.2,
+    "grainSize": 1.4,
+    "luminanceNoise": 0.06,
+    "chromaNoise": 0.04,
+    "toneCurveStrength": 1.0,
+    "centerGain": 0.015,
+    "edgeFalloff": 0.05,
+    "exposureVariation": 0.04,
+    "cornerWarmShift": 0.035,
+    "topBottomBias": 0.01,
+    "leftRightBias": 0.0,
+    "developmentSoftness": 0.03,
+    "chemicalIrregularity": 0.025,
+    "skinHueProtect": true,
+    "skinSatProtect": 0.9,
+    "skinLumaSoften": 0.04,
+    "skinRedLimit": 1.05,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "paperTexture": 0.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.06,
+    "shadowTintR": 0.035,
+    "shadowTintG": 0.015,
+    "shadowTintB": 0.0,
+    "highlightTintR": 0.055,
+    "highlightTintG": 0.03,
+    "highlightTintB": 0.0,
+    "splitToneBalance": 0.42,
+    "lightLeakAmount": 0.05
+  },
+  "modules": {
+    "filters": [
+      {
+        "id": "u300_color",
+        "name": "Color 400",
+        "nameEn": "Color 400",
+        "lut": "assets/lut/cameras/u300_color.cube",
+        "contrast": 1.1,
+        "saturation": 1.2,
+        "grain": "medium",
+        "grainSize": 0.6,
+        "vignette": 0.1,
+        "thumbnail": "assets/thumbnails/films/u300_color.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 680,
+        "slideDistance": 1.0,
+        "motionBlur": 0.08,
+        "sound": "film_advance"
+      },
+      {
+        "id": "u300_gold",
+        "name": "Gold 200",
+        "nameEn": "Gold 200",
+        "lut": "assets/lut/cameras/u300_gold.cube",
+        "contrast": 1.04,
+        "saturation": 1.2,
+        "grain": "medium",
+        "grainSize": 0.5,
+        "vignette": 0.08,
+        "thumbnail": "assets/thumbnails/films/u300_gold.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 720,
+        "slideDistance": 1.02,
+        "motionBlur": 0.07,
+        "sound": "film_advance"
+      },
+      {
+        "id": "u300_portra",
+        "name": "Portra",
+        "nameEn": "Portra",
+        "lut": "assets/lut/cameras/u300_portra.cube",
+        "contrast": 0.98,
+        "saturation": 1.08,
+        "grain": "light",
+        "grainSize": 0.4,
+        "vignette": 0.06,
+        "thumbnail": "assets/thumbnails/films/u300_portra.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 650,
+        "slideDistance": 0.98,
+        "motionBlur": 0.06,
+        "sound": "film_advance"
+      }
+    ],
+    "lenses": [
+      {
+        "id": "std",
+        "name": "标准",
+        "nameEn": "Standard",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.02,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_std.png"
+      },
+      {
+        "id": "wide",
+        "name": "广角",
+        "nameEn": "Wide",
+        "zoomFactor": 0.8,
+        "distortion": 0.06,
+        "vignette": 0.08,
+        "chromaticAberration": 0.01,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "vintage",
+        "name": "复古",
+        "nameEn": "Vintage",
+        "zoomFactor": 1.0,
+        "distortion": 0.02,
+        "vignette": 0.12,
+        "chromaticAberration": 0.03,
+        "edgeBlur": 0.04,
+        "exposure": -0.02,
+        "contrast": -0.04,
+        "saturation": -0.02,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_vintage.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "supportsFrame": true,
+        "width": 1,
+        "height": 1
+      },
+      {
+        "id": "ratio_2_3",
+        "label": "2:3",
+        "supportsFrame": false,
+        "width": 2,
+        "height": 3
+      },
+      {
+        "id": "ratio_3_4",
+        "label": "3:4",
+        "supportsFrame": true,
+        "width": 3,
+        "height": 4
+      }
+    ],
+    "frames": [
+      {
+        "id": "instant_default",
+        "name": "冷白",
+        "nameEn": "Default",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_default_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_default_3x4.png"
+        },
+        "backgroundColor": "#F5F6FA",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_default.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F5F6FA",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_blue",
+        "name": "冰蓝",
+        "nameEn": "Ice Blue",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_blue_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_blue_3x4.png"
+        },
+        "backgroundColor": "#E8F4FD",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_blue.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F4FD",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_green",
+        "name": "抹茶",
+        "nameEn": "Matcha",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_green_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_green_3x4.png"
+        },
+        "backgroundColor": "#E8F5E9",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_green.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F5E9",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_orange",
+        "name": "橙意",
+        "nameEn": "Tangerine",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_orange_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_orange_3x4.png"
+        },
+        "backgroundColor": "#FFF3E0",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_orange.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FFF3E0",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_pink",
+        "name": "樱粉",
+        "nameEn": "Blossom",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_pink_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_pink_3x4.png"
+        },
+        "backgroundColor": "#FCE4EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_pink.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FCE4EC",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_rose",
+        "name": "玫瑰",
+        "nameEn": "Rose",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_rose_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_rose_3x4.png"
+        },
+        "backgroundColor": "#F8E8EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_rose.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F8E8EC",
+        "supportsBackground": true
+      }
+    ],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_orange",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": "u300_color",
+    "lensId": "std",
+    "ratioId": "ratio_2_3",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": true,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": true,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": true
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": true,
+    "allowZoom": true,
+    "allowImportImage": true,
+    "allowTimer": true,
+    "allowFlash": true
+  },
+  "previewPolicy": {
+    "enableLut": true,
+    "enableTemperature": true,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": true,
+    "enableGrain": true,
+    "enableBloom": false,
+    "enableChromaticAberration": true,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true,
+    "enableHalation": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.9,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": true,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24
+    ],
+    "resolutionOptions": [
+      "HD"
+    ],
+    "defaultFps": 24,
+    "defaultResolution": "HD",
+    "supportsAudio": false,
+    "videoBitrate": 8000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/u300.jpg",
+    "icon": "assets/thumbnails/cameras/u300_icon.jpg"
+  },
+  "meta": {
+    "version": "final",
+    "premium": false,
+    "sortOrder": 8,
+    "tags": [
+      "film",
+      "disposable",
+      "grain",
+      "travel",
+      "kodak",
+      "ultramax"
+    ]
+  },
+  "filmRollBehavior": {
+    "type": "advance",
+    "style": "35mm"
+  },
+  "defaults": {}
+}

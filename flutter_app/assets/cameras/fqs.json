@@ -1,0 +1,606 @@
+{
+  "id": "fqs",
+  "name": "FQS",
+  "nameEn": "FQS",
+  "category": "film",
+  "mode": "photo",
+  "sensor": {
+    "type": "film_scan",
+    "dynamicRange": 11.5,
+    "baseNoise": 0.28,
+    "colorDepth": 8
+  },
+  "defaultLook": {
+    "baseLut": "assets/lut/cameras/fqs_superia400_flash.cube",
+    "distortion": 0.0,
+    "chromaticAberration": 0.15,
+    "flare": 0.0,
+    "temperature": -28,
+    "tint": -14.0,
+    "contrast": 1.06,
+    "highlights": -5.0,
+    "shadows": -6.0,
+    "whites": 6.0,
+    "blacks": -5.0,
+    "clarity": 6.0,
+    "saturation": 1.1,
+    "vibrance": 0.95,
+    "grain": 0.22,
+    "grainSize": 1.5,
+    "bloom": 0.06,
+    "vignette": 0.1,
+    "colorBiasR": -0.03,
+    "colorBiasG": 0.04,
+    "colorBiasB": 0.015,
+    "sharpness": 0.92,
+    "halation": 0.04,
+    "filterLuts": [
+      {
+        "id": "fqs_flash",
+        "name": "Flash",
+        "path": "assets/lut/cameras/fqs_superia400_flash.cube",
+        "description": "闪光灯场景，冷白绿调"
+      },
+      {
+        "id": "fqs_natural",
+        "name": "Natural",
+        "path": "assets/lut/cameras/fqs_superia400_natural.cube",
+        "description": "自然光室外，青绿阴影"
+      },
+      {
+        "id": "fqs_indoor",
+        "name": "Indoor",
+        "path": "assets/lut/cameras/fqs_superia400_indoor.cube",
+        "description": "室内暖光，绿调保留"
+      }
+    ],
+    "dehaze": 0.0,
+    "highlightRolloff": 0.18,
+    "edgeFalloff": 0.04,
+    "exposureVariation": 0.022,
+    "cornerWarmShift": -0.008,
+    "centerGain": 0.018,
+    "developmentSoftness": 0.032,
+    "chemicalIrregularity": 0.022,
+    "skinHueProtect": true,
+    "skinSatProtect": 0.93,
+    "skinLumaSoften": 0.035,
+    "skinRedLimit": 1.01,
+    "luminanceNoise": 0.08,
+    "chromaNoise": 0.05,
+    "toneCurveStrength": 1.0,
+    "grainAmount": 0.0,
+    "vignetteAmount": 0.0,
+    "paperTexture": 0.0,
+    "noiseAmount": 0.0,
+    "irregUvScale": 2.5,
+    "irregFreq1": 1.0,
+    "irregFreq2": 1.7,
+    "irregWeight1": 0.6,
+    "irregWeight2": 0.4,
+    "paperUvScale1": 8.0,
+    "paperUvScale2": 32.0,
+    "paperWeight1": 0.7,
+    "paperWeight2": 0.3,
+    "fadeAmount": 0.04,
+    "shadowTintR": 0.0,
+    "shadowTintG": 0.035,
+    "shadowTintB": 0.04,
+    "highlightTintR": 0.01,
+    "highlightTintG": 0.02,
+    "highlightTintB": 0.01,
+    "splitToneBalance": 0.5,
+    "lightLeakAmount": 0.0
+  },
+  "modules": {
+    "filters": [
+      {
+        "id": "fuji_superia_400",
+        "name": "Fuji Superia 400",
+        "nameEn": "Fuji Superia 400",
+        "lut": "assets/lut/cameras/fqs_fuji_portra.cube",
+        "contrast": 1.02,
+        "saturation": 1.12,
+        "grain": "medium",
+        "grainSize": 1.4,
+        "vignette": 0.1,
+        "sharpness": 0.92,
+        "thumbnail": "assets/thumbnails/films/fuji_superia_400.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 680,
+        "slideDistance": 1.0,
+        "motionBlur": 0.07,
+        "sound": "film_advance"
+      },
+      {
+        "id": "kodak_portra_400",
+        "name": "Kodak Portra 400",
+        "nameEn": "Kodak Portra 400",
+        "lut": "assets/lut/cameras/fqs_fuji_portra.cube",
+        "contrast": 0.96,
+        "saturation": 1.06,
+        "grain": "light",
+        "grainSize": 1.2,
+        "vignette": 0.08,
+        "sharpness": 0.96,
+        "thumbnail": "assets/thumbnails/films/kodak_portra_400.jpg",
+        "filmRollType": "advance",
+        "filmRollStyle": "35mm",
+        "advanceDuration": 650,
+        "slideDistance": 0.95,
+        "motionBlur": 0.05,
+        "sound": "film_advance"
+      }
+    ],
+    "lenses": [
+      {
+        "id": "std",
+        "name": "标准",
+        "nameEn": "Standard",
+        "zoomFactor": 1.0,
+        "distortion": 0.0,
+        "vignette": 0.03,
+        "chromaticAberration": 0.0,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_std.png"
+      },
+      {
+        "id": "wide",
+        "name": "广角",
+        "nameEn": "Wide",
+        "zoomFactor": 0.8,
+        "distortion": 0.04,
+        "vignette": 0.1,
+        "chromaticAberration": 0.02,
+        "edgeBlur": 0.01,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_wide.png"
+      },
+      {
+        "id": "tele",
+        "name": "长焦",
+        "nameEn": "Tele",
+        "zoomFactor": 2.0,
+        "distortion": -0.01,
+        "vignette": 0.05,
+        "chromaticAberration": 0.01,
+        "edgeBlur": 0.0,
+        "exposure": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "highlightCompression": 0.0,
+        "bloom": 0.0,
+        "flare": 0.0,
+        "softFocus": 0.0,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_tele.png"
+      },
+      {
+        "id": "vintage",
+        "name": "复古",
+        "nameEn": "Vintage",
+        "zoomFactor": 1.0,
+        "distortion": 0.03,
+        "vignette": 0.18,
+        "chromaticAberration": 0.05,
+        "edgeBlur": 0.06,
+        "exposure": -0.03,
+        "contrast": -0.05,
+        "saturation": -0.03,
+        "highlightCompression": 0.0,
+        "bloom": 0.05,
+        "flare": 0.02,
+        "softFocus": 0.04,
+        "refraction": 0.0,
+        "iconPath": "assets/lenses/lens_vintage.png"
+      }
+    ],
+    "ratios": [
+      {
+        "id": "ratio_1_1",
+        "label": "1:1",
+        "supportsFrame": true,
+        "width": 1,
+        "height": 1
+      },
+      {
+        "id": "ratio_2_3",
+        "label": "2:3",
+        "supportsFrame": false,
+        "width": 2,
+        "height": 3
+      },
+      {
+        "id": "ratio_3_4",
+        "label": "3:4",
+        "supportsFrame": true,
+        "width": 3,
+        "height": 4
+      }
+    ],
+    "frames": [
+      {
+        "id": "instant_default",
+        "name": "冷白",
+        "nameEn": "Default",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_default_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_default_3x4.png"
+        },
+        "backgroundColor": "#F5F6FA",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_default.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F5F6FA",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_blue",
+        "name": "冰蓝",
+        "nameEn": "Ice Blue",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_blue_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_blue_3x4.png"
+        },
+        "backgroundColor": "#E8F4FD",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_blue.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F4FD",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_green",
+        "name": "抹茶",
+        "nameEn": "Matcha",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_green_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_green_3x4.png"
+        },
+        "backgroundColor": "#E8F5E9",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_green.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#E8F5E9",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_orange",
+        "name": "橙意",
+        "nameEn": "Tangerine",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_orange_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_orange_3x4.png"
+        },
+        "backgroundColor": "#FFF3E0",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_orange.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FFF3E0",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_pink",
+        "name": "樱粉",
+        "nameEn": "Blossom",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_pink_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_pink_3x4.png"
+        },
+        "backgroundColor": "#FCE4EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_pink.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#FCE4EC",
+        "supportsBackground": true
+      },
+      {
+        "id": "instant_rose",
+        "name": "玫瑰",
+        "nameEn": "Rose",
+        "ratioAssets": {
+          "ratio_1_1": "assets/frames/polaroid_rose_1x1.png",
+          "ratio_3_4": "assets/frames/polaroid_rose_3x4.png"
+        },
+        "backgroundColor": "#F8E8EC",
+        "cornerRadius": 0,
+        "innerShadow": true,
+        "inset": {
+          "top": 151,
+          "right": 137,
+          "bottom": 344,
+          "left": 134
+        },
+        "ratioInsets": {
+          "ratio_1_1": {
+            "top": 159,
+            "right": 139,
+            "bottom": 340,
+            "left": 137
+          },
+          "ratio_3_4": {
+            "top": 151,
+            "right": 137,
+            "bottom": 344,
+            "left": 134
+          }
+        },
+        "supportedRatios": [
+          "ratio_1_1",
+          "ratio_3_4"
+        ],
+        "thumbnail": "assets/thumbnails/frames/instant_rose.jpg",
+        "lightLeak": 0.2,
+        "shake": 0.15,
+        "outerPadding": 0,
+        "outerBackgroundColor": "#F8E8EC",
+        "supportsBackground": true
+      }
+    ],
+    "watermarks": {
+      "presets": [
+        {
+          "id": "date_orange",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "date_white",
+          "name": "橙色日期",
+          "color": "#FF8A3D",
+          "position": "bottom_right",
+          "fontSize": 18,
+          "fontFamily": "DigitalMono"
+        },
+        {
+          "id": "none",
+          "name": "无水印"
+        }
+      ],
+      "editor": {
+        "allowColorChange": true,
+        "allowPositionChange": true,
+        "allowSizeChange": true,
+        "allowOrientationChange": true
+      }
+    },
+    "extras": []
+  },
+  "defaultSelection": {
+    "filterId": "fuji_superia_400",
+    "lensId": "std",
+    "ratioId": "ratio_2_3",
+    "frameId": null,
+    "watermarkPresetId": "none",
+    "extraId": null
+  },
+  "uiCapabilities": {
+    "enableFilter": true,
+    "enableLens": true,
+    "enableRatio": true,
+    "enableFrame": false,
+    "enableWatermark": true,
+    "enableExtra": false,
+    "enableFilmRoll": true
+  },
+  "previewCapabilities": {
+    "allowSmallViewport": true,
+    "allowGridOverlay": true,
+    "allowZoom": true,
+    "allowImportImage": false,
+    "allowTimer": true,
+    "allowFlash": false
+  },
+  "previewPolicy": {
+    "enableLut": true,
+    "enableTemperature": true,
+    "enableContrast": true,
+    "enableSaturation": true,
+    "enableVignette": true,
+    "enableLightLensEffect": true,
+    "enableGrain": true,
+    "enableBloom": true,
+    "enableChromaticAberration": true,
+    "enableFrameComposite": false,
+    "enableWatermarkComposite": true,
+    "enableHalation": true
+  },
+  "exportPolicy": {
+    "jpegQuality": 0.92,
+    "applyRatioCrop": true,
+    "applyFrameOnExport": false,
+    "applyWatermarkOnExport": true,
+    "preserveMetadata": true
+  },
+  "videoConfig": {
+    "enabled": false,
+    "fpsOptions": [
+      24,
+      30
+    ],
+    "resolutionOptions": [
+      "HD"
+    ],
+    "defaultFps": 24,
+    "defaultResolution": "HD",
+    "supportsAudio": false,
+    "videoBitrate": 8000000
+  },
+  "assets": {
+    "thumbnail": "assets/thumbnails/cameras/fqs_icon.jpg",
+    "icon": "assets/thumbnails/cameras/fqs_icon.jpg"
+  },
+  "meta": {
+    "version": "1.0",
+    "premium": false,
+    "sortOrder": 11,
+    "tags": [
+      "film",
+      "35mm",
+      "disposable",
+      "quicksnap",
+      "fuji",
+      "superia",
+      "superia400",
+      "green-tone",
+      "cold",
+      "flash",
+      "grain",
+      "soft"
+    ]
+  }
+}
