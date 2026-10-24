@@ -34,6 +34,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: '3.27.4'
           cache: true
 
       - name: Print Flutter version and locate SDK
